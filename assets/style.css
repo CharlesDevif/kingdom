@@ -84,3 +84,31 @@ input:focus { outline:none; box-shadow: 0 0 0 4px var(--ring); border-color: tra
 /* Runes: barely visible until selected */
 .runes { user-select:text; color: rgba(0,0,0,.05); letter-spacing: .08em; font-size:12px; }
 .runes::selection { background: gold; color: #111; }
+
+/* Site nav */
+.nav { display:flex; gap:14px; align-items:center; justify-content:center; padding:10px 12px; background: rgba(255,255,255,.5); backdrop-filter: blur(6px); border-bottom:1px solid rgba(0,0,0,.06); }
+.nav a { color: inherit; text-decoration:none; padding:8px 10px; border-radius:8px; font-weight:600; }
+.nav a:hover, .nav a.active { background: rgba(37,99,235,.12); color: var(--primary-600); }
+
+/* Hero */
+.hero { position:relative; height: 320px; display:grid; place-items:end center; color:#fff; overflow:hidden; border-bottom:1px solid rgba(255,255,255,.1); }
+.hero::before { content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.5) 60%, rgba(0,0,0,.85)); z-index:0; }
+.hero::after { content:""; position:absolute; inset:-2px; background: var(--hero, none) center/cover no-repeat; filter: saturate(1.05) contrast(1.05); z-index:-1; }
+.hero-inner { position:relative; padding:32px 16px; width:100%; max-width:860px; }
+.hero h2 { margin:0 0 8px; text-shadow: 0 2px 12px rgba(0,0,0,.55); }
+.lead { color: rgba(255,255,255,.92); margin:0; text-shadow: 0 1px 6px rgba(0,0,0,.5); }
+
+/* Grid & gallery */
+.grid { display:grid; gap:16px; }
+@media (min-width: 640px){ .grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 880px){ .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.figure { border-radius:14px; overflow:hidden; background: #0f162e; border:1px solid rgba(255,255,255,.06); box-shadow: var(--shadow); }
+.figure img { width:100%; height:220px; object-fit:cover; display:block; }
+.caption { padding:10px 12px; color: #e5e7eb; background: linear-gradient(180deg, rgba(15,22,46,.2), rgba(15,22,46,.6)); font-size:14px; }
+
+/* Columns */
+.columns { display:grid; gap:18px; }
+@media (min-width: 860px){ .columns { grid-template-columns: 2fr 1fr; } }
+.col { background: var(--card); border-radius: var(--radius); padding:18px; box-shadow: var(--shadow); border:1px solid rgba(0,0,0,.05); }
+
+.badge { display:inline-block; padding:4px 8px; border-radius:999px; background: rgba(37,99,235,.12); color: var(--primary-600); font-weight:700; letter-spacing:.02em; font-size:12px; }

@@ -15,6 +15,20 @@
       <p>Portail des Archives — Accès restreint</p>
       <a class="crown" href="#donjon" title="Couronne">👑</a>
     </header>
+    <nav class="nav">
+      <a href="/" class="active">Accueil</a>
+      <a href="/gallery.php">Galerie</a>
+      <a href="/archives.php">Archives</a>
+      <a href="/about.php">À propos</a>
+      <a href="/login.php">Se connecter</a>
+      <a href="/diagnostics.php">Diagnostics</a>
+    </nav>
+    <section class="hero" style="--hero:url('https://upload.wikimedia.org/wikipedia/commons/9/9c/Cit%C3%A9_de_Carcassonne_29.10.2012.jpg')">
+      <div class="hero-inner">
+        <h2>Archives du Chǽteau</h2>
+        <p class="lead">Documents, plans et chroniques des terres d'Occitanie.</p>
+      </div>
+    </section>
     <main class="container">
       <section class="card">
         <h2>Accéder aux registres</h2>
