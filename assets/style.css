@@ -1,12 +1,86 @@
-html, body { margin:0; padding:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:#f6f7fb; color:#222; }
-.header { background:#111; color:#eee; padding:24px; text-align:center; }
-.container { max-width:800px; margin:32px auto; padding:0 16px; }
-.card { background:#fff; border-radius:16px; box-shadow:0 5px 18px rgba(0,0,0,.08); padding:24px; }
-.btn { display:inline-block; padding:10px 16px; border-radius:10px; text-decoration:none; background:#3b82f6; color:#fff; border:0; cursor:pointer; margin-right:8px; }
-.btn.secondary { background:#6b7280; }
+/*
+  ┌─────────────────────────────────────────────────────────────┐
+  │  Archives du Châteaux — Style & Subtle Sigils               │
+  │  Psst: certains emblèmes n'apparaissent qu'à qui les cherche │
+  └─────────────────────────────────────────────────────────────┘
+
+  Hints for the curious:
+  - robots.txt whispers of .well-known/
+  - crowns reveal doors; targets unlock donjons
+  - selection lights runes
+*/
+
+:root{
+  --bg: #f6f7fb;
+  --text: #222;
+  --muted: #6b7280;
+  --card: #ffffff;
+  --primary: #3b82f6;
+  --primary-600: #2563eb;
+  --ring: rgba(37,99,235,.35);
+  --shadow: 0 8px 30px rgba(0,0,0,.10);
+  --radius: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root{
+    --bg: #0b1020;
+    --text: #e6e7ef;
+    --muted: #9aa1b5;
+    --card: #0f162e;
+    --primary: #8ab4ff;
+    --primary-600: #79a6ff;
+    --ring: rgba(138,180,255,.35);
+    --shadow: 0 10px 40px rgba(0,0,0,.45);
+  }
+}
+
+html, body { margin:0; padding:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:var(--bg); color:var(--text); }
+
+.header {
+  color:#fff;
+  padding:28px 16px 40px;
+  text-align:center;
+  position:relative;
+  background:
+    radial-gradient(1200px 300px at 50% -30%, rgba(255,255,255,.15), transparent 60%),
+    linear-gradient(135deg, #0f172a, #1f2937 55%, #0f172a);
+  box-shadow: inset 0 -1px 0 rgba(255,255,255,.06);
+}
+.header h1 { margin:0 0 6px; letter-spacing:.3px; }
+.header p { margin:0; color:rgba(255,255,255,.75); }
+
+.container { max-width:860px; margin:-28px auto 32px; padding:0 16px; }
+
+.card { background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px; border:1px solid rgba(0,0,0,.04); }
+.card + .card { margin-top:18px; }
+.card:hover { transform: translateY(-1px); transition: transform .15s ease; }
+
+.btn { display:inline-block; padding:10px 16px; border-radius:10px; text-decoration:none; background:var(--primary); color:#0b1020; border:0; cursor:pointer; margin-right:8px; font-weight:600; box-shadow: 0 2px 8px rgba(59,130,246,.25); }
+.btn:hover { background:var(--primary-600); color:#07101f; }
+.btn:focus { outline: none; box-shadow: 0 0 0 4px var(--ring); }
+.btn.secondary { background:var(--muted); color:#fff; box-shadow:none; }
+
 .field { display:flex; flex-direction:column; gap:6px; margin-bottom:12px; }
 label { font-weight:600; }
-input { padding:10px 12px; border:1px solid #e5e7eb; border-radius:10px; }
-.pre { background:#0b1020; color:#c7d2fe; padding:16px; border-radius:12px; overflow:auto; }
+input { padding:10px 12px; border:1px solid #e5e7eb; border-radius:10px; background:transparent; color:inherit; }
+input:focus { outline:none; box-shadow: 0 0 0 4px var(--ring); border-color: transparent; }
+
+.pre { background:#0b1020; color:#c7d2fe; padding:16px; border-radius:12px; overflow:auto; border:1px solid rgba(255,255,255,.05); }
 .footer { text-align:center; color:#666; padding:24px; }
-.msg { margin-top:10px; font-size:14px; color:#111; }
+.msg { margin-top:10px; font-size:14px; color:var(--text); }
+
+/* Crown easter egg trigger */
+.crown {
+  position:absolute; right:14px; top:14px; text-decoration:none; font-size:18px; line-height:1; opacity:.18; transition:opacity .2s ease, transform .2s ease; filter: drop-shadow(0 2px 0 rgba(0,0,0,.2));
+}
+.crown:hover { opacity:.9; transform: translateY(-1px) scale(1.05); }
+
+/* Secret card toggled via #donjon :target */
+.secret { display:none; }
+#donjon:target { display:block; animation: fadeIn .28s ease both; }
+@keyframes fadeIn { from { opacity:0; transform: translateY(4px) } to { opacity:1; transform:none } }
+
+/* Runes: barely visible until selected */
+.runes { user-select:text; color: rgba(0,0,0,.05); letter-spacing: .08em; font-size:12px; }
+.runes::selection { background: gold; color: #111; }
