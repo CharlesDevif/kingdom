@@ -63,7 +63,7 @@
             <figcaption class="caption">Charte scellée — parchemin</figcaption>
           </figure>
         </div>
-        <p class="msg">Accès complet réservé — un <a href="/login.php">compte</a> est requis. Source partielle de jeu: <a href="/data/seed.sql">seed.sql</a></p>
+        <p class="msg">Accès complet réservé — un <a href="/login.php">compte</a> est requis.</p>
       </section>
     </main>
     <footer class="footer">
