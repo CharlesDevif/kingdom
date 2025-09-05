@@ -1,0 +1,3 @@
+# Certains couloirs sont rarement visités...
+User-agent: *
+Allow: /.well-known/
